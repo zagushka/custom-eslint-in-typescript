@@ -1,5 +1,5 @@
 {
-  "name": "custom-eslint-in-typescript",
+  "name": "gyg-vuex-eslint",
   "private": true,
   "scripts": {
     "lint": "eslint --ext .ts,.tsx ."

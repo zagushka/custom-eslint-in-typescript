@@ -1,7 +1,7 @@
-import myFirstRule from './rules/my-first-rule';
+import noStateObjects from './rules/no-state-object';
 
 const rules = {
-  'my-first-rule': myFirstRule
+  'no-state-objects': noStateObjects
 };
 
 export default rules;

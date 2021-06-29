@@ -1,7 +1,8 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['example'],
+  ignorePatterns: ["temp.js", "**/packages/eslint-plugin-example/**/*.ts"],
   rules: {
-    'example/my-first-rule': 'error',
+    'example/no-state-objects': 'error',
   }
 };
