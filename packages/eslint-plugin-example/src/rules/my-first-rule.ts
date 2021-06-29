@@ -1,4 +1,8 @@
 import { Rule } from 'eslint';
+import { Property } from "estree";
+
+const goUpAndFind = (node: Property & Rule.NodeParentExtension) => {
+}
 
 const rule: Rule.RuleModule = {
     meta: {
@@ -8,14 +12,18 @@ const rule: Rule.RuleModule = {
     },
     create: (context: Rule.RuleContext) => {
         return {
-            VariableDeclarator: (node) => {
-                if (node.id.type === 'Identifier' && node.id.name !== 'bla') {
+            Property: (node) => {
+                if (node.key.type !== "Identifier" || node.key.name !== "state") {
+                    return;
+                }
+
+                if ("ObjectExpression" === node.value.type) {
                     context.report({
                         node,
-                        message: 'All variabled should be named "bla"!',
+                        message: 'Please use function instead',
                     });
                 }
-            }
+            },
         }
     },
 };
